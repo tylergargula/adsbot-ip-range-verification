@@ -10,11 +10,21 @@ This Jupyter Notebook is designed to verify the crawling of AdsBot using Google 
 4. **Verify IP Addresses**: Checks if the IP addresses in the crawl log data fall within the Google IP ranges.
 5. **Export Results**: Exports the verification results to a CSV file.
 
+
+
 ## Detailed Steps
 
 1. **Load the Data**:
    - Reads the crawl log data from `/data/`.
    - Creates a copy of the DataFrame for processing.
+   
+| userAgentString                                    | Remote IP      | Count |
+|----------------------------------------------------|----------------|-------|
+| AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.98   | 515   |
+| AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.101  | 510   |
+| AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.99   | 508   |
+| AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.100  | 499   |
+| AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.96   | 494   |
 
 2. **Fetch Google IP Ranges**:
    - Sends a GET request to `https://developers.google.com/static/search/apis/ipranges/special-crawlers.json`.
@@ -29,6 +39,11 @@ This Jupyter Notebook is designed to verify the crawling of AdsBot using Google 
    - Defines a function to check if an IP address falls within a given range.
    - Iterates through the crawl log data and checks each IP address against the Google IP ranges.
    - Adds a new column `is_google` to the DataFrame to indicate whether each IP address is from Google.
+
+| is_google | count | total_requests |
+|-----------|-------|----------------|
+| False     | 4     | 5              |
+| True      | 637   | 16412          |
 
 5. **Export Results**:
    - Exports the DataFrame with the verification results to `export/{datetime}_AdsBot_Verification.csv`.
