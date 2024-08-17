@@ -18,7 +18,7 @@ This Jupyter Notebook is designed to verify the crawling of AdsBot using Google 
    - Reads the crawl log data from `/data/`.
    - Creates a copy of the DataFrame for processing.
    
-| userAgentString                                    | Remote IP      | Count |
+| userAgentString                                    | Remote IP      | Requests |
 |----------------------------------------------------|----------------|-------|
 | AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.98   | 515   |
 | AdsBot-Google (+http://www.google.com/adsbot.html) | 72.14.199.101  | 510   |
